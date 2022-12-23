@@ -22,3 +22,12 @@
       {{ cluster_constraint.order.second_resource_action | default('') }}
       {{ cluster_constraint.order.second_resource }}
       {{ cluster_constraint.order.options | default([]) | join(' ') }}
+
+- name: ensure cluster order constraint does not exists
+  when:
+    - cluster_constraint.order.state | default('present') | lower == 'absent'
+    - _pcs_order_constraint_show.rc == 0
+  ansible.builtin.command: >
+    pcs constraint order remove
+      {{ cluster_constraint.order.first_resource }}
+      {{ cluster_constraint.order.second_resource }}
