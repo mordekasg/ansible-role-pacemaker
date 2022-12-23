@@ -48,7 +48,6 @@ None
 | state              | string               | `present`  | `present`: create or update the resource<br>`absent`: remove the resource                    |
 | provider           | string               |            | Name of the resource provider (use `pcs resource providers` to list all available providers) |
 | options            | list of strings      | `[]`       | Optional list of the provider options                                                        |
-| meta_options       | list of strings      | `[]`       | Optional list of the resource meta options                                                   |
 | operations         | list of dictionaries | `[]`       | Optional list resource operations                                                            |
 | stickiness         | integer              | `0`        | Optional resource stickiness value                                                           |
 | test_command       | string               | `null`     | Optional command to test a service resource configuration                                    |

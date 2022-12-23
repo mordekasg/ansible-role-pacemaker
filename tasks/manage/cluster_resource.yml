@@ -24,7 +24,6 @@
               {{ cluster_resource.resource_id }}
               {{ cluster_resource.provider }}
               {{ cluster_resource.options | default([]) | join(' ') }}
-              {{ 'meta ' ~ (cluster_resource.meta_options  | default([]) | join(' ')) if cluster_resource.meta_options | default([]) else '' }}
 
         - name: ensure cluster resource clone exists
           when: cluster_resource.type | default('resource') | lower == 'clone'
