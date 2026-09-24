@@ -1,0 +1,22 @@
+# GitHub Actions files
+/.github/               @skriptfabrik/github-actions-maintainers
+
+# Devcontainer configuration
+/.devcontainer/         @skriptfabrik/devcontainer-maintainers
+
+# Ansible files
+/defaults/              @skriptfabrik/ansible-maintainers
+/handlers/              @skriptfabrik/ansible-maintainers
+/meta/                  @skriptfabrik/ansible-maintainers
+/molecule/              @skriptfabrik/ansible-maintainers
+/tasks/                 @skriptfabrik/ansible-maintainers
+/templates/             @skriptfabrik/ansible-maintainers
+/vars/                  @skriptfabrik/ansible-maintainers
+.ansible-lint           @skriptfabrik/ansible-maintainers
+ansible.cfg             @skriptfabrik/ansible-maintainers
+requirements.yml        @skriptfabrik/ansible-maintainers
+
+# Pip files
+.python-version         @skriptfabrik/pip-maintainers
+pyproject.toml          @skriptfabrik/pip-maintainers
+uv.lock                 @skriptfabrik/pip-maintainers

@@ -1,6 +1,17 @@
 # Ansible Role: pacemaker
 
-[![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-sshd-blue.svg?style=popout-square)](https://galaxy.ansible.com/skriptfabrik/pacemaker) [![Ansible Role](https://img.shields.io/ansible/role/d/59509.svg?style=popout-square)](https://galaxy.ansible.com/skriptfabrik/pacemaker)
+[![Ansible Galaxy](https://img.shields.io/badge/ansible--galaxy-pacemaker-blue.svg?style=popout-square)](https://galaxy.ansible.com/skriptfabrik/pacemaker)
+[![Ansible Role](https://img.shields.io/ansible/role/d/skriptfabrik/pacemaker?style=popout-square)](https://galaxy.ansible.com/skriptfabrik/pacemaker)
+[![Publish](https://github.com/skriptfabrik/ansible-role-pacemaker/actions/workflows/publish.yml/badge.svg)](https://github.com/skriptfabrik/ansible-role-pacemaker/actions/workflows/publish.yml)
+
+## Requirements & Setup
+
+- [Docker](https://www.docker.com/)
+- [mise-en-place](https://mise.jdx.dev/)
+- [VS Code](https://code.visualstudio.com/) with [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension
+
+1. Clone this repository locally
+2. Start [VS Code](https://code.visualstudio.com/)
 
 ## Description
 

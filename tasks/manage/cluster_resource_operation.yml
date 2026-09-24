@@ -1,5 +1,6 @@
 ---
-- name: ensure cluster resource operation does not exists
+- name: Ensure cluster resource operation does not exists
+  register: _pcs_resource_op_remove
   when:
     - cluster_resource_operation.state | default('present') | lower == 'absent'
     - (' ' ~ cluster_resource_operation.name) in _pcs_resource_config.stdout
@@ -8,14 +9,16 @@
     pcs resource op remove
       {{ cluster_resource.resource_id }}
       {{ cluster_resource_operation.name }}
+  changed_when: "_pcs_resource_op_remove.rc == 0"
 
-- name: handle present state
+- name: Handle present state
   when:
     - cluster_resource_operation.state | default('present') | lower == 'present'
     - _pcs_resource_config.stdout is not search('Stopped')
     - cluster_resource.type | default('resource') | lower == 'resource'
   block:
-    - name: update cluster resource operations
+    - name: Update cluster resource operations
+      register: _pcs_resource_update
       when:
         - (' ' ~ cluster_resource_operation.name) in _pcs_resource_config.stdout
         - cluster_resource.type | default('resource') | lower == 'resource'
@@ -23,8 +26,10 @@
         pcs resource update
           {{ cluster_resource.resource_id }}
           op {{ cluster_resource_operation.name }} {{ cluster_resource_operation.options | default([]) | join(' ') }}
+      changed_when: "_pcs_resource_update.rc == 0"
 
-    - name: add cluster resource operations
+    - name: Add cluster resource operations
+      register: _pcs_resource_op_add
       when:
         - (' ' ~ cluster_resource_operation.name) not in _pcs_resource_config.stdout
         - cluster_resource.type | default('resource') | lower == 'resource'
@@ -32,3 +37,4 @@
         pcs resource op add
           {{ cluster_resource.resource_id }}
           {{ cluster_resource_operation.name }} {{ cluster_resource_operation.options | default([]) | join(' ') }}
+      changed_when: "_pcs_resource_op_add.rc == 0"
