@@ -18,13 +18,14 @@
       - fence-agents
       - resource-agents
 
-- name: Install fence-agents-base and resource-agents-base (>= Ubuntu 22)
+- name: Install fence-agents-base and resource-agents-base and resource-agents-extra (>= Ubuntu 22)
   when: >
     ansible_distribution == 'Ubuntu' and ansible_distribution_major_version | int >= 22
   ansible.builtin.apt:
     name:
       - fence-agents-base
       - resource-agents-base
+      - resource-agents-extra
 
 - name: Install fence-agents-all and resource-agents (Debian 13+)
   when: >
